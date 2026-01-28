@@ -7,7 +7,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Hi! I\'m an AI assistant. How can I help you learn more about Shubham Verma\'s portfolio?'
+      content: 'We are currently working on a new AI model. This chatbot feature will be available soon.'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -27,74 +27,9 @@ const Chatbot = () => {
     }
   }, [isOpen]);
 
-  const handleSendMessage = async (e) => {
+  const handleSendMessage = (e) => {
+    // Chatbot temporarily disabled: show only static message
     e.preventDefault();
-    
-    if (!inputMessage.trim() || isLoading) return;
-
-    const userMessage = inputMessage.trim();
-    setInputMessage('');
-    
-    // Add user message to chat
-    const newUserMessage = {
-      role: 'user',
-      content: userMessage
-    };
-    setMessages(prev => [...prev, newUserMessage]);
-    setIsLoading(true);
-
-    try {
-      // Prepare conversation history (last 10 messages for context)
-      const conversationHistory = messages
-        .slice(-10)
-        .map(msg => ({
-          role: msg.role,
-          content: msg.content
-        }));
-
-      // Call backend API
-      // Update this URL to match your backend deployment
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/chat';
-      
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage,
-          conversationHistory: conversationHistory
-        })
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        // Add AI response to chat
-        setMessages(prev => [...prev, {
-          role: 'assistant',
-          content: data.message
-        }]);
-      } else {
-        throw new Error(data.error || 'Failed to get response');
-      }
-    } catch (error) {
-      console.error('Chatbot Error:', error);
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again later or contact Shubham directly.'
-      }]);
-    } finally {
-      setIsLoading(false);
-      inputRef.current?.focus();
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage(e);
-    }
   };
 
   return (
@@ -116,7 +51,7 @@ const Chatbot = () => {
               <FaRobot className="chatbot-icon" />
               <div>
                 <h3>AI Assistant</h3>
-                <p>Ask me anything about Shubham's portfolio</p>
+                <p>We are working on a new AI model. Chat will be available soon.</p>
               </div>
             </div>
             <button
@@ -164,16 +99,15 @@ const Chatbot = () => {
               ref={inputRef}
               type="text"
               className="chatbot-input"
-              placeholder="Type your message..."
+              placeholder="Chat is coming soon..."
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              onKeyPress={handleKeyPress}
-              disabled={isLoading}
+              disabled
             />
             <button
               type="submit"
               className="chatbot-send"
-              disabled={!inputMessage.trim() || isLoading}
+              disabled
               aria-label="Send message"
             >
               <FaPaperPlane />
