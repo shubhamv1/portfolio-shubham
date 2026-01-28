@@ -4,14 +4,13 @@ import './Chatbot.css';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
+  const [messages] = useState([
     {
       role: 'assistant',
       content: 'We are currently working on a new AI model. This chatbot feature will be available soon.'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -77,20 +76,6 @@ const Chatbot = () => {
                 </div>
               </div>
             ))}
-            {isLoading && (
-              <div className="chatbot-message assistant">
-                <div className="message-avatar">
-                  <FaRobot />
-                </div>
-                <div className="message-content">
-                  <div className="typing-indicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-            )}
             <div ref={messagesEndRef} />
           </div>
 
