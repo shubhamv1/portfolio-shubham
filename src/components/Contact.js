@@ -32,7 +32,6 @@ const Contact = () => {
     // EmailJS configuration
     const serviceId = 'service_vuy35tq';
     const templateId = 'template_45t5n7k';
-    const publicKey = 'suQmWAPtNlK9L0QAC';
 
     // Template parameters - match exactly with your EmailJS template variables
     const templateParams = {

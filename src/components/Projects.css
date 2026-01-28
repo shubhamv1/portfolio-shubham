@@ -208,6 +208,12 @@
   font-size: 0.85rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+}
+
+button.project-link {
+  font-family: inherit;
+  text-decoration: none;
 }
 
 .project-link::before {

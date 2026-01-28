@@ -89,9 +89,9 @@ const Projects = () => {
                 <FaGithub /> View Code
               </a>
               {project.highlight && (
-                <a href="#" className="project-link" onClick={(e) => e.preventDefault()}>
+                <button className="project-link" onClick={(e) => e.preventDefault()}>
                   <FaExternalLinkAlt /> Case Study
-                </a>
+                </button>
               )}
             </div>
           </div>
