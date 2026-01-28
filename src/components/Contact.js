@@ -184,7 +184,7 @@ const Contact = () => {
         <p>I'm available for immediate start and committed to delivering high-quality work on time.</p>
         <div className="cta-highlights">
           <div className="cta-item">
-            <strong>Expected Charges:</strong> ₹1,00,000 (One Lakh) for complete project
+            <strong>Expected Charges:</strong> Will be discussed based on project scope
           </div>
           <div className="cta-item">
             <strong>Commitment:</strong> On-time delivery and strict adherence to deadlines

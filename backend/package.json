@@ -1,0 +1,27 @@
+{
+  "name": "grok-chatbot-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Grok AI Chatbot",
+  "main": "grok-api.js",
+  "scripts": {
+    "start": "node grok-api.js",
+    "dev": "nodemon grok-api.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "grok",
+    "ai",
+    "chatbot",
+    "api"
+  ],
+  "author": "Shubham Verma",
+  "license": "MIT"
+}
+
